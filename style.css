@@ -1,188 +1,108 @@
-/* General reset */
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Times New Roman', serif;
+  scroll-behavior: smooth;
 }
 
-/* Body style */
 body {
-  background: linear-gradient(to bottom, #fff0f5, #ffffff); 
+  font-family: 'Sora', sans-serif;
   color: #333;
+  background: linear-gradient(to bottom, #e0f7fa, #fce4ec);
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+/* Section Styles */
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  padding: 2rem;
   text-align: center;
-  padding: 20px;
-  overflow-x: hidden;
 }
 
-/* Profile Image */
-img {
-  max-width: 220px;
-  max-height: 300px;
-  border-radius: 50%; 
-  margin-top: 30px;
-  border: 5px solid #f8cdd3;
-  box-shadow: 0 4px 20px rgba(248, 205, 211, 0.5);
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  color: #fff;
 }
 
-img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 40px rgba(248, 205, 211, 0.7);
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid #fff;
 }
 
-/* Heading animation */
-h1, h2 {
-  margin: 30px 0 15px;
-  font-size: 2.5em;
-  color: black; /* Text color is black */
-  background: linear-gradient(90deg, #f78da7, #f8cdd3); 
-  -webkit-background-clip: text;  /* Apply the gradient only to the text */
-  color: transparent; /* Make the default color transparent */
-  animation: slideIn 5s ease forwards;
-  opacity: 0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+/* Section Headings */
+h2 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
 }
 
-h1:hover, h2:hover {
-  color: #f78da7;
-  text-shadow: 0 4px 6px rgba(255, 192, 203, 0.5);
+/* Text */
+p, li {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0.5rem 0;
 }
 
-/* Section Titles (Headlines) */
-h3 {
-  font-size: 1.8em;
+/* Projects Card */
+.card {
+  background: #ffffffcc;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 500px;
+}
+
+/* Experience List */
+.experience ul {
+  list-style: none;
+}
+
+.experience li {
+  margin-bottom: 1rem;
+}
+
+/* Skills */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tags span {
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Contact Links */
+a {
+  color: #333;
+  text-decoration: none;
   font-weight: bold;
-  text-transform: uppercase;
-  color: black; /* Set color to black */
-  margin-top: 40px;
-  margin-bottom: 10px;
-  animation: slideIn 2s ease forwards, bounceIn 1s ease-out;
-  opacity: 0;
 }
 
-h3:hover {
-  color: #f78da7;
-  text-shadow: 0 4px 8px rgba(248, 205, 211, 0.5);
+a:hover {
+  color: #0077cc;
 }
 
-/* Paragraphs */
-p {
-  font-size: 1.2em;
-  margin: 20px auto;
-  max-width: 600px;
-  color: #555;
-  animation: fadeIn 1s ease-out forwards;
-  opacity: 1; /* Keep paragraphs visible */
-}
-
-p:hover {
-  color: #f78da7;
-}
-
-/* About, Experiences, Skills Sections Styling */
-section {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(255, 192, 203, 0.3);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-  animation: fadeInSection 1s ease-out forwards;
-}
-
-/* Section Visibility Animation */
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Section Styling - Adding class for about, experiences, and skills sections */
-section.about, section.experience, section.skills {
-  text-align: left;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(255, 192, 203, 0.2);
-}
-
-/* Optional Custom Scroll Animation */
-section {
-  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-}
-
-/* Adding Specific Styling to Headings and Paragraphs for Sections */
-.about h2, .experience h2, .skills h2 {
-  font-size: 1.8em;
-  color: #f78da7;
-  margin-top: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-  animation: slideIn 1s ease forwards;
-}
-
-.about p, .experience p, .skills p {
-  font-size: 1.2em;
-  color: #555;
-  animation: fadeIn 1.5s ease-out 0.5s;
-}
-
-/* New animations for sections */
-@keyframes slideIn {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    transform: scale(0);
-  }
-  60% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInSection {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Creating creative hover effect for sections */
-section:hover {
-  background-color: #f8f8f8;
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(255, 192, 203, 0.5);
-}
-
-section:active {
-  transform: translateY(2px);
-  box-shadow: 0 4px 15px rgba(255, 192, 203, 0.3);
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #f3f3f3;
+  font-size: 0.9rem;
 }
