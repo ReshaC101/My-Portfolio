@@ -4,8 +4,220 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resha Chettry | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      cursor: none;
+    }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(to bottom, #f9f6f3, #ffffff);
+      color: #1f1f1f;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #d81b60;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
+      z-index: 1000;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 6rem 2rem;
+      scroll-snap-align: start;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.9) translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.in-view {
+      opacity: 1;
+      transform: scale(1.1) translateY(0);
+    }
+
+    .section-box {
+      background: #ffffff;
+      border: 1px solid #f3d8da;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
+      border-radius: 2rem;
+      padding: 4rem 3rem;
+      max-width: 1100px;
+      width: 95%;
+      transform-origin: center;
+      transition: transform 0.8s ease, box-shadow 0.8s ease;
+    }
+
+    .section-box.in-view {
+      transform: scale(1.08);
+    }
+
+    .hero {
+      background: linear-gradient(180deg, #fff9f9 0%, #fefefe 100%);
+      padding: 10rem 2rem 6rem;
+      text-align: center;
+    }
+
+    .overlay {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-pic {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #fff;
+      box-shadow: 0 30px 60px rgba(255, 182, 193, 0.35);
+      margin-bottom: 1.5rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: #d81b60;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: elegantFade 2.4s ease forwards;
+    }
+
+    @keyframes elegantFade {
+      0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      color: #c2185b;
+      margin-bottom: 1.2rem;
+      animation: slideInLeft 1.2s ease forwards;
+    }
+
+    h3 {
+      font-size: 2rem;
+      color: #444;
+      margin-bottom: 0.75rem;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    p, li {
+      font-size: 1.25rem;
+      color: #444;
+      margin: 0.6rem 0;
+      animation: fadeInUp 1.4s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .card {
+      background: #fff6fa;
+      padding: 2.5rem;
+      border-radius: 1.6rem;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.07);
+      border: 1px solid #fcd6e3;
+      animation: fadeInUp 1.4s ease-in-out;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 1.8rem;
+    }
+
+    .tags span {
+      background: #fff3f7;
+      color: #d81b60;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      border: 1px solid #f8bbd0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    .tags span:hover {
+      transform: scale(1.2);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+      color: #e91e63;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: #c2185b;
+    }
+
+    footer {
+      background: #fff9f9;
+      padding: 2rem;
+      text-align: center;
+      color: #777;
+      animation: fadeIn 2s ease-in;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cursor = document.createElement("div");
+      cursor.classList.add("cursor");
+      document.body.appendChild(cursor);
+
+      document.addEventListener("mousemove", e => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              const box = entry.target.querySelector(".section-box");
+              if (box) box.classList.add("in-view");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      document.querySelectorAll("section").forEach(sec => observer.observe(sec));
+    });
+  </script>
 </head>
 <body>
   <div class="hero">
@@ -17,49 +229,51 @@
   </div>
 
   <section class="about">
-    <h2>About Me</h2>
-    <p>I'm a Computer Science student passionate about building user-friendly experiences, solving problems with technology, and designing for wellness. I bring creativity, leadership, and a collaborative spirit to every project I touch.</p>
+    <div class="section-box">
+      <h2>About Me</h2>
+      <p>I'm a Computer Science student passionate about user-first design, wellness tech, and visual storytelling. I thrive on turning complex problems into elegant digital solutions, blending empathy, creativity, and logic.</p>
+    </div>
   </section>
 
   <section class="projects">
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>Mindful Motion</h3>
-      <p>A self-improvement app integrating meditation, music, journaling, and goal-setting. Built with React and Express.js for a seamless experience across devices.</p>
+    <div class="section-box">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Mindful Motion</h3>
+        <p>A self-care app combining meditation, music, journaling, and goals. Designed for peace of mind and clarity — coded in React & Express.js with mobile-first design.</p>
+      </div>
     </div>
   </section>
 
   <section class="experience">
-    <h2>Experience</h2>
-    <ul>
-      <li>
-        <strong>IT Support Consultant Extern – YMCA</strong><br>
-        Helped 20+ seniors boost digital literacy, ran group sessions, and made tech approachable.
-      </li>
-      <li>
-        <strong>Content & Technology Specialist – Caldwell University</strong><br>
-        Created engaging videos using Adobe Premiere Pro + After Effects, and provided editing support.
-      </li>
-    </ul>
+    <div class="section-box">
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>IT Support Consultant Extern – YMCA</strong><br>Led group sessions with seniors, simplified tech topics, and helped build digital confidence.</li>
+        <li><strong>Content & Technology Specialist – Caldwell University</strong><br>Produced creative visuals and videos using Adobe Premiere & After Effects to elevate campus branding.</li>
+      </ul>
+    </div>
   </section>
 
   <section class="skills">
-    <h2>Programming Languages</h2>
-    <div class="tags">
-      <span>Python |</span><span> Java | </span><span>HTML/CSS | </span><span>SQL | </span><span>React | </span><span>Figma | </span><span>SQL |</span><span>Adobe</span>
+    <div class="section-box">
+      <h2>Skills</h2>
+      <div class="tags">
+        <span>Python</span><span>Java</span><span>HTML/CSS</span><span>SQL</span><span>React</span><span>Figma</span><span>Adobe</span>
+      </div>
     </div>
   </section>
 
   <section class="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:reshakchettry@gmail.com">reshakchettry@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/reshakchettry" target="_blank">@reshakchettry</a></p>
+    <div class="section-box">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:reshakchettry@gmail.com">reshakchettry@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/resha-k-5245412ba/" target="_blank">@reshakchettry</a></p>
+    </div>
   </section>
 
   <footer>
-    <p>By Resha C| 2025</p>
+    <p>By Resha C | 2025</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
