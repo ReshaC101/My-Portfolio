@@ -109,7 +109,7 @@ section,
 
 .profile-pic.in-view {
   filter: blur(0);
-}
+  
 h1, .glow-heading {
   font-family: 'Playfair Display', serif;
   font-size: 4rem;
@@ -118,9 +118,9 @@ h1, .glow-heading {
 }
 
 #name-heading {
-  color: #0f0509 !important;
-  text-shadow: none !important;
-  animation: none !important; /* if you want to disable glowPulse on name */
+  color: #0f0509;
+  text-shadow: none;
+  animation: none ; 
 }
 
 
