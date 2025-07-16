@@ -7,14 +7,14 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #fad3ca;  /* Light peachy pink background for entire page */
+  background-color: #f7a6c6;  /* Updated background color */
   color: #3c3c3c;
   overflow-x: hidden;
 }
 
 section,
 .hero {
-  background: transparent; /* Let the body background show */
+  background: transparent;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -114,9 +114,9 @@ section,
 h1, .glow-heading {
   font-family: 'Playfair Display', serif;
   font-size: 4rem;
-  color: #0f0509 !important; /* Dark name color */
+  color: #0f0509 !important;
   margin-bottom: 1rem;
-  text-shadow: none !important; /* Remove pink glow */
+  text-shadow: none !important;
   animation: glowPulse 3s infinite alternate;
 }
 
@@ -238,4 +238,39 @@ footer {
 }
 
 .standout-card .card {
-  border: 2px solid rgba(233, 30, 99, 0.
+  border: 2px solid rgba(233, 30, 99, 0.25);
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.standout-card .card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 0 20px rgba(233, 30, 99, 0.4),
+              0 0 40px rgba(233, 30, 99, 0.3);
+}
+
+.visit-label {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e91e63;
+  text-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
+  opacity: 0.85;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.standout-card:hover .visit-label {
+  text-shadow: 0 0 12px rgba(233, 30, 99, 0.7);
+  transform: scale(1.05);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(233, 30, 99, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(233, 30, 99, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(233, 30, 99, 0.0);
+  }
+}
