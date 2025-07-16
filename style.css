@@ -7,15 +7,21 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #fff6f4; /* very light pink/beige background */
+  background-color: #fad3ca; /* updated peachy pink background */
   color: #3c3c3c;
   overflow-x: hidden;
 }
 
 section {
-  background: #fff6f4; /* match body background for sections */
+  background: transparent; /* removed to inherit from body */
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+.hero {
+  background: transparent; /* removed gradient to match body background */
+  padding: 10rem 2rem 6rem;
+  text-align: center;
 }
 
 #progress-bar {
