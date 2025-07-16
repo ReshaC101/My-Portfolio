@@ -110,15 +110,19 @@ section,
 .profile-pic.in-view {
   filter: blur(0);
 }
-
 h1, .glow-heading {
   font-family: 'Playfair Display', serif;
   font-size: 4rem;
-  color: #0f0509 !important;
   margin-bottom: 1rem;
-  text-shadow: none !important;
   animation: glowPulse 3s infinite alternate;
 }
+
+#name-heading {
+  color: #0f0509 !important;
+  text-shadow: none !important;
+  animation: none !important; /* if you want to disable glowPulse on name */
+}
+
 
 @keyframes glowPulse {
   from {
