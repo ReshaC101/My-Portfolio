@@ -83,34 +83,30 @@
     </div>
   </section>
 
-  <section id="skills" class="skills">
-  <div class="section-box">
-    <h2>Skills</h2>
-    <div class="tags">
-      <span>Python</span>
-      <span>Java</span>
-      <span>HTML/CSS</span>
-      <span>SQL</span>
-      <span>React</span>
-      <span>Figma</span>
-      <span>Adobe</span>
-    </div>
-  </div>
-</section>
-
 <script>
   const tagsContainer = document.querySelector('.skills .tags');
   const tags = document.querySelectorAll('.skills .tags span');
 
   tagsContainer.addEventListener('mousemove', e => {
     const rect = tagsContainer.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
 
-    tags.forEach((tag, i) => {
-      const factor = 15 * (i / tags.length);
-      const moveX = (x / rect.width) * factor;
-      const moveY = (y / rect.height) * factor;
+    tags.forEach(tag => {
+      const tagRect = tag.getBoundingClientRect();
+
+      // Calculate distance from cursor to the center of each tag
+      const tagCenterX = tagRect.left + tagRect.width / 2;
+      const tagCenterY = tagRect.top + tagRect.height / 2;
+      const distanceX = e.clientX - tagCenterX;
+      const distanceY = e.clientY - tagCenterY;
+
+      // Calculate movement factor inversely proportional to distance, max 15px movement
+      const maxMovement = 15;
+      const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+      const movement = Math.min(maxMovement, 150 / (distance + 1)); // +1 to avoid divide by zero
+
+      // Direction is away from the cursor for a nice effect
+      const moveX = (distanceX / distance) * movement || 0;
+      const moveY = (distanceY / distance) * movement || 0;
 
       tag.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
     });
