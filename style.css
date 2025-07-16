@@ -192,4 +192,9 @@ footer {
   text-align: center;
   color: #777;
 }
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 
