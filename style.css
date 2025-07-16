@@ -111,15 +111,15 @@ section,
   filter: blur(0);
 }
 
-h1, .glow-heading {
+#name-heading, .glow-heading {
   font-family: 'Playfair Display', serif;
   font-size: 4rem;
-  color: #fff; /* White color */
+  color: #fff !important;  /* force white color */
   margin-bottom: 1rem;
-  text-shadow: 
+  text-shadow:
     0 0 5px #fff,
     0 0 10px #fff,
-    0 0 20px #ff66cc,  /* soft pink glow */
+    0 0 20px #ff66cc,
     0 0 30px #ff66cc,
     0 0 40px #ff66cc,
     0 0 55px #ff66cc,
@@ -129,7 +129,7 @@ h1, .glow-heading {
 
 @keyframes glowPulse {
   from {
-    text-shadow: 
+    text-shadow:
       0 0 5px #fff,
       0 0 10px #fff,
       0 0 20px #ff66cc,
@@ -139,7 +139,7 @@ h1, .glow-heading {
       0 0 75px #ff66cc;
   }
   to {
-    text-shadow: 
+    text-shadow:
       0 0 10px #fff,
       0 0 20px #fff,
       0 0 30px #ff99dd,
