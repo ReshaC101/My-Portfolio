@@ -267,3 +267,33 @@ footer {
     box-shadow: 0 0 0 rgba(233, 30, 99, 0.0);
   }
 }
+.skills .tags {
+  background-color: #f7ebe9; /* soft beige */
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  perspective: 800px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.skills .tags span {
+  background: #fcd9e4;  /* lighter baby pink */
+  color: #b86b80;       /* muted pink text */
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  border: 1px solid #f8bbd0;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  will-change: transform;
+  display: inline-block;
+}
+
+.skills .tags span:hover {
+  box-shadow: 0 0 10px rgba(248, 217, 230, 0.7);
+  transform: scale(1.1);
+}
