@@ -187,13 +187,41 @@ h2 {
   margin-top: 1.8rem;
 }
 
-.tags span {
-  background: #fbe9ef;
-  color: #d26f8b;
+/* Updated Skills tags container with beige background */
+.skills .tags {
+  background-color: #f7ebe9; /* soft beige */
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  perspective: 800px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  box-shadow: inset 0 0 10px #f8bbd0;
+}
+
+/* Updated Skills tags boxes */
+.skills .tags span {
+  background: #f48fb1;  /* medium pink */
+  color: #fff;          /* white text */
   padding: 0.75rem 1.5rem;
   border-radius: 2rem;
   font-weight: 600;
-  border: 1px solid #f5c1d0;
+  border: 1.5px solid #e91e63;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  will-change: transform;
+  display: inline-block;
+  box-shadow: 0 3px 6px rgba(232, 30, 99, 0.4);
+}
+
+.skills .tags span:hover {
+  background-color: #e91e63;
+  box-shadow: 0 0 15px #f06292, 0 0 25px #e91e63;
+  transform: scale(1.1);
+  color: #fff;
 }
 
 p, li {
@@ -266,34 +294,4 @@ footer {
   100% {
     box-shadow: 0 0 0 rgba(233, 30, 99, 0.0);
   }
-}
-.skills .tags {
-  background-color: #f7ebe9; /* soft beige */
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.2rem;
-  perspective: 800px;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s ease;
-}
-
-.skills .tags span {
-  background: #fcd9e4;  /* lighter baby pink */
-  color: #b86b80;       /* muted pink text */
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  font-weight: 600;
-  border: 1px solid #f8bbd0;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  will-change: transform;
-  display: inline-block;
-}
-
-.skills .tags span:hover {
-  box-shadow: 0 0 10px rgba(248, 217, 230, 0.7);
-  transform: scale(1.1);
 }
