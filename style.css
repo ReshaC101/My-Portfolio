@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f5a4b8; 
+  background-color: #f2b3c3; 
   color: #3c3c3c;
   overflow-x: hidden;
 }
@@ -74,7 +74,7 @@ section {
 }
 
 .hero {
-  background: linear-gradient(180deg, #fff9f9 0%, #f5a4b8 100%);
+  background: linear-gradient(180deg, #fff9f9 0%, #f2b3c3 100%);
   padding: 10rem 2rem 6rem;
   text-align: center;
 }
